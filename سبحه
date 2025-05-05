@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>السبحة الإلكترونية - Rana Raed</title>
+    <style>
+        body {
+            background: linear-gradient(135deg, #d0f0c0, #f0fff0);
+            font-family: 'Cairo', sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            color: #333;
+        }
+
+        h1 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            color: #2b7a78;
+        }
+
+        .counter {
+            font-size: 60px;
+            margin: 20px 0;
+            color: #17252a;
+        }
+
+        button {
+            font-size: 20px;
+            padding: 15px 30px;
+            margin: 10px;
+            border: none;
+            border-radius: 10px;
+            background-color: #3aafa9;
+            color: white;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background-color: #2b7a78;
+        }
+
+        footer {
+            position: absolute;
+            bottom: 20px;
+            font-size: 14px;
+            color: #777;
+        }
+
+        .counter-container {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            max-width: 600px;
+        }
+    </style>
+</head>
+<body>
+    <h1>السبحة الإلكترونية</h1>
+    
+    <div class="counter-container">
+        <div class="counter">
+            <div>سبحان الله</div>
+            <div id="subhan">0</div>
+        </div>
+        <div class="counter">
+            <div>الحمد لله</div>
+            <div id="hamd">0</div>
+        </div>
+        <div class="counter">
+            <div>الله أكبر</div>
+            <div id="takbeer">0</div>
+        </div>
+    </div>
+    
+    <button onclick="increaseCounter('subhan')">سبّحي سبحان الله</button>
+    <button onclick="increaseCounter('hamd')">سبّحي الحمد لله</button>
+    <button onclick="increaseCounter('takbeer')">سبّحي الله أكبر</button>
+    <button onclick="resetCounters()">إعادة</button>
+
+    <footer>&copy; 2025 Rana Raed</footer>
+
+    <script>
+        let counters = {
+            subhan: 0,
+            hamd: 0,
+            takbeer: 0
+        };
+
+        function increaseCounter(counterType) {
+            counters[counterType]++;
+            document.getElementById(counterType).innerText = counters[counterType];
+        }
+
+        function resetCounters() {
+            counters.subhan = 0;
+            counters.hamd = 0;
+            counters.takbeer = 0;
+            document.getElementById('subhan').innerText = counters.subhan;
+            document.getElementById('hamd').innerText = counters.hamd;
+            document.getElementById('takbeer').innerText = counters.takbeer;
+        }
+    </script>
+</body>
+</html>
